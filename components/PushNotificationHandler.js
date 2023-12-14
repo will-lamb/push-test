@@ -1,8 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Text, View, Button, Platform } from "react-native";
+import { Text, View, Button, Platform, StyleSheet } from "react-native";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import Constants from "expo-constants";
+import PropTypes from "prop-types";
+
+PushNotificationHandler.propTypes = {
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  sound: PropTypes.string.isRequired,
+  priority: PropTypes.string.isRequired,
+  to: PropTypes.array.isRequired,
+};
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -99,20 +108,9 @@ export default function PushNotificationHandler({
   }
 
   return (
-    <View
-      style={{ flex: 1, alignItems: "center", justifyContent: "space-around" }}
-    >
-      <Text>Your expo push token: {expoPushToken}</Text>
-      <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text>
-          Title: {notification && notification.request.content.title}{" "}
-        </Text>
-        <Text>Body: {notification && notification.request.content.body}</Text>
-        <Text>
-          Data:{" "}
-          {notification && JSON.stringify(notification.request.content.data)}
-        </Text>
-      </View>
+    <View style={styles.container}>
+      <Text>Your expo push token: </Text>
+      <Text>{expoPushToken}</Text>
       <Button
         title="Send Push Notification"
         onPress={sendPushNotificationHandler}
@@ -120,3 +118,7 @@ export default function PushNotificationHandler({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, alignItems: "center", justifyContent: "space-around" },
+});
