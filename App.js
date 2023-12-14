@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View } from "react-native";
+import PushNotificationHandler from "./components/PushNotificationHandler";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }}>
+      <PushNotificationHandler
+        to={["ExponentPushToken[Ev0ekyN4DFhNbbhSx247t9]"]}
+        title="TEST"
+        body="This is the body test"
+        sound="default"
+        priority="high"
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
