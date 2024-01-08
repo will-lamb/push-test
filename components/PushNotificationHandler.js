@@ -3,15 +3,6 @@ import { Text, View, Button, Platform, StyleSheet } from "react-native";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import Constants from "expo-constants";
-import PropTypes from "prop-types";
-
-PushNotificationHandler.propTypes = {
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  sound: PropTypes.string.isRequired,
-  priority: PropTypes.string.isRequired,
-  to: PropTypes.array.isRequired,
-};
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
