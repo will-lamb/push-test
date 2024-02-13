@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <PushNotificationHandler
-        to={["ExponentPushToken[Ev0ekyN4DFhNbbhSx247t9]"]}
+        to={["ExponentPushToken[aFycybEZ9SG3p-8PLIKqEf]"]}
         title="TEST"
         body="This is the body test"
         sound="default"
